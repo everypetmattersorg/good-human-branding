@@ -4,7 +4,11 @@ Erin Maxson's portfolio and umbrella site for Confluence Creative Co., The Littl
 
 ## What's here
 
-- `index.html`: the whole site, a single static page (no build step)
+- `index.html`: the home page (no build step)
+- `contact.html`: the "trail register" contact page, served at `/contact`
+- `contact.js`: sends contact form messages to Supabase. Until Supabase is set up, it opens the visitor's email app with the message filled in
+- `config.js`: Supabase project URL and anon key (empty until Supabase is connected)
+- `supabase/contact_messages.sql`: creates the `contact_messages` table (visitors can submit messages but can't read them)
 - `favicon.svg`: the rubber duck browser-tab icon
 - `vercel.json`: Vercel settings (clean URLs, basic security headers)
 
@@ -14,9 +18,12 @@ Erin Maxson's portfolio and umbrella site for Confluence Creative Co., The Littl
 2. Framework preset: **Other**. Leave the build command and output directory empty.
 3. Deploy. Every push to `main` redeploys automatically.
 
-## Supabase
+## Supabase (contact form)
 
-Not wired up yet. Supabase gets added once we decide what the site should collect (for example contact messages, a Desk Pets waitlist, or newsletter signups).
+1. Create a Supabase project.
+2. In **SQL Editor**, run `supabase/contact_messages.sql`.
+3. From **Project Settings → API**, copy the project URL and the `anon` public key into `config.js`, then push.
+4. New messages show up in **Table Editor → contact_messages**.
 
 ## Editing
 
