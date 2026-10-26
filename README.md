@@ -20,6 +20,10 @@ Erin Maxson's portfolio and umbrella site for Confluence Creative Co., The Littl
 
 ## Supabase (contact form)
 
+Live: messages save to `contact_messages` in the **confluence-creative-co** Supabase project. Read them in Table Editor → contact_messages.
+
+To set it up from scratch:
+
 1. Create a Supabase project.
 2. In **SQL Editor**, run `supabase/contact_messages.sql`.
 3. From **Project Settings → API**, copy the project URL and the `anon` public key into `config.js`, then push.

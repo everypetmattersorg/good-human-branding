@@ -60,14 +60,16 @@
 
     button.disabled = true;
     say("Sending…");
+    var headers = {
+      "Content-Type": "application/json",
+      apikey: cfg.supabaseAnonKey,
+      Prefer: "return=minimal"
+    };
+    // Legacy anon keys are JWTs and also go in Authorization; publishable keys don't.
+    if (/^eyJ/.test(cfg.supabaseAnonKey)) headers.Authorization = "Bearer " + cfg.supabaseAnonKey;
     fetch(cfg.supabaseUrl.replace(/\/$/, "") + "/rest/v1/contact_messages", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: cfg.supabaseAnonKey,
-        Authorization: "Bearer " + cfg.supabaseAnonKey,
-        Prefer: "return=minimal"
-      },
+      headers: headers,
       body: JSON.stringify({
         name: v.name,
         email: v.email,
