@@ -22,6 +22,8 @@ Erin Maxson's portfolio and umbrella site for Confluence Creative Co., The Littl
 
 Live: messages save to `contact_messages` in the **confluence-creative-co** Supabase project. Read them in Table Editor → contact_messages.
 
+Email alerts: each new message triggers the `notify-contact-message` Edge Function (`supabase/functions/`, trigger in `supabase/contact_email_notify.sql`), which emails erin@confluencecreativeco.com through Resend. It needs a `RESEND_API_KEY` secret (Supabase → Edge Functions → Secrets).
+
 To set it up from scratch:
 
 1. Create a Supabase project.
